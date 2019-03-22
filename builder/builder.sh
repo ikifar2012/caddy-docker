@@ -1,7 +1,7 @@
 #!/bin/sh
 
 VERSION=${VERSION:-"0.11.5"}
-TELEMETRY=${ENABLE_TELEMETRY:-"true"}
+TELEMETRY=${ENABLE_TELEMETRY:-"false"}
 
 # caddy
 git clone https://github.com/mholt/caddy -b "v$VERSION" /go/src/github.com/mholt/caddy \
@@ -9,7 +9,7 @@ git clone https://github.com/mholt/caddy -b "v$VERSION" /go/src/github.com/mholt
     && git checkout -b "v$VERSION"
 
 # plugin helper
-GOOS=linux GOARCH=amd64 go get -v github.com/abiosoft/caddyplug/caddyplug
+GOOS=linux GOARCH=amd64 go get -v github.com/abiosoft/caddyplug
 alias caddyplug='GOOS=linux GOARCH=amd64 caddyplug'
 
 # telemetry
